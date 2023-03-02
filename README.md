@@ -21,5 +21,6 @@
 ### **Beta Testers:**
 - Not Now :)
 ------------
-***For any queries join the [support server](https://discord.gg/CommingSoon "support server"), and our support 
-assitants will help you out. If you are not satisfied, just drop me a DM Anno#8266***
+~~***For any queries join the [support server](https://discord.gg/CommingSoon "support server"), and our support 
+assitants will help you out. If you are not satisfied, just drop me a DM Anno#8266***~~
+Not now
