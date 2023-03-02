@@ -3,7 +3,7 @@ from discord.ext import commands, tasks
 
 db = sqlite3.connect('db.db')
 
-class Ban(commands.Cog):
+class UnbanTempBan(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
@@ -17,19 +17,20 @@ class Ban(commands.Cog):
     @tasks.loop(seconds=1)
     async def check_bans(self):
         now = int(datetime.datetime.utcnow().timestamp())
-        rows = self.db.execute("SELECT * FROM tempban WHERE end_time >= ?", (now,))
+        rows = db.execute("SELECT * FROM tempban WHERE time <= ?", (now,))
+        print(now)
         r1 = rows.fetchall()
-        for row in r1:
+        for user_id, time, guild_id in r1:
             try:
-                print(row[0])
-                user = await self.client.fetch_user(row[0])
-                guild = self.client.get_guild(config.guild)
+                print(f"{user_id} {time} {guild_id}")
+                user = await self.bot.fetch_user(user_id)
+                guild = self.bot.get_guild(guild_id)
                 await guild.unban(user)
-                self.db.execute("DELETE FROM tempban WHERE user_id = ?, guild_id", (row[0], row[0][0]))
-                self.db.commit()
+                db.execute("DELETE FROM tempban WHERE user_id = ?", (user_id,))
+                db.commit()
             except discord.NotFound:
-                print(f"Could not find user with ID {row[0]}")   
+                pass 
 
 
 async def setup(bot: commands.Bot):
-    await bot.add_cog(Ban(bot))
+    await bot.add_cog(UnbanTempBan(bot))
