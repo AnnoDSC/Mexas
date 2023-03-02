@@ -1,3 +1,5 @@
+<img src="./Logo/E1C25F4B-2017-4367-9179-1F39C565B6CD.jpeg" width=35% height=35%>
+
 # **Welcome to Mexas (v0.0.1)**
 *this bot is a multifunctional bot with more than 100 commands. Moderation commands, fun commands and more*
 
