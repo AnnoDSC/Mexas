@@ -9,8 +9,8 @@ class Ban(commands.Cog):
 
     @app_commands.commands.command(name="ban", description="Bans a user from the server")
     @app_commands.describe(user="The user to ban")
-    async def ban(self, interaction: discord.Interaction, user: discord.User, reason: str = None):
-        if reason is None:
+    async def ban(self, interaction: discord.Interaction, user: discord.Member, reason: str = ""):
+        if reason == "":
             reason = "No reason provided"
 
         if user.bot:
@@ -27,8 +27,22 @@ class Ban(commands.Cog):
             name="Duration",
             value=f"Perma",
         )
+
+        emb1 = discord.Embed(
+            title=f"Ban System",
+            description=f"The moderator {interaction.user.mention} has Ban you",
+            color=discord.Colour.red(),
+        ).add_field(
+            name="Reason",
+            value=f"{reason}",
+        ).add_field(
+            name="Duration",
+            value=f"permanent",
+        )
+
         await interaction.response.send_message(embed=emb)
-        # await user.ban(reason=f"Banned by {interaction.user}")
+        await user.send(embed=emb1)
+        await user.ban(reason=f"Banned by {interaction.user}")
 
 
 
