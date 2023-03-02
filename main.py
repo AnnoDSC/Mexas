@@ -54,7 +54,7 @@ def cc_db():
 
 @bot.event
 async def on_ready():
-    print("--------------------------------")dad
+    print("--------------------------------")
     print(f"{bot.user} is connected to Discord, current latency is {round(bot.latency * 1000)}ms")
     print("--------------------------------")
 
