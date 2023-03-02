@@ -19,7 +19,7 @@ class Mexas(commands.AutoShardedBot):
         for filename in os.listdir("./Commands"):
             if filename.endswith('.py'):
                 await self.load_extension(f"Commands.{filename[:-3]}")
-                print(f"Loaded {filename}")
+                print(f"Loaded {filename} ✅")
             
             if filename.startswith('__'):
                 pass
@@ -27,7 +27,7 @@ class Mexas(commands.AutoShardedBot):
         for filename in os.listdir("./Events"):
             if filename.endswith('.py'):
                 await self.load_extension(f"Events.{filename[:-3]}")
-                print(f"Loaded {filename}")
+                print(f"Loaded {filename} ✅")
             
             if filename.startswith('__'):
                 pass
@@ -35,7 +35,7 @@ class Mexas(commands.AutoShardedBot):
         for filename in os.listdir("./Tasks"):
             if filename.endswith('.py'):
                 await self.load_extension(f"Tasks.{filename[:-3]}")
-                print(f"Loaded {filename}")
+                print(f"Loaded {filename} ✅")
             
             if filename.startswith('__'):
                 pass
@@ -47,7 +47,9 @@ bot = Mexas()
 
 @bot.event
 async def on_ready():
+    print("--------------------------------")
     print(f"{bot.user} is connected to Discord, current latency is {round(bot.latency * 1000)}ms")
+    print("--------------------------------")
 
 @bot.command(name="reload")
 @commands.is_owner()
