@@ -1,5 +1,7 @@
-import discord, os, config, sys
+import discord, os, config, sys, sqlite3
 from discord.ext import commands
+
+db = sqlite3.connect("db.db")
 
 sys.dont_write_bytecode = True
 
@@ -45,9 +47,14 @@ class Mexas(commands.AutoShardedBot):
 
 bot = Mexas()
 
+def cc_db():
+    db.execute("create table if not exists reports (id integer, upvote integer, downvote integer)")
+    db.execute("create table if not exists tempban (user_id integer, time integer, guild_id integer)")
+    db.commit()
+
 @bot.event
 async def on_ready():
-    print("--------------------------------")
+    print("--------------------------------")dad
     print(f"{bot.user} is connected to Discord, current latency is {round(bot.latency * 1000)}ms")
     print("--------------------------------")
 
