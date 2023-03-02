@@ -1,3 +1,3 @@
 MEXAS_PREFIX = '!'
-MEXAS_TOKEN = "You_Token
+MEXAS_TOKEN = "You_Token"
 MEXAS_VERSION = 'v0.0.1'
