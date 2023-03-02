@@ -9,7 +9,7 @@
 ##### Use /chl to see the channellog in discord 
 
 # **Workin on / My roadmap**
-- [ ] Performanc
+- [ ] Performance
 - [ ] More Commands
 
 ##### More updates comming soon
