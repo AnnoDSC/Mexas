@@ -80,7 +80,7 @@ class Ban(commands.Cog):
             value=f"Perma",
         )
 
-        emb1 = discord.Embed(
+        emb1 = discord.Embed(aas
             title=f"Ban System",
             description=f"The moderator {interaction.user.mention} has Ban you",
             color=discord.Colour.red(),
