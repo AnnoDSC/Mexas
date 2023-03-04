@@ -18,11 +18,9 @@ class UnbanTempBan(commands.Cog):
     async def check_bans(self):
         now = int(datetime.datetime.utcnow().timestamp())
         rows = db.execute("SELECT * FROM tempban WHERE time <= ?", (now,))
-        print(now)
         r1 = rows.fetchall()
         for user_id, time, guild_id in r1:
             try:
-                print(f"{user_id} {time} {guild_id}")
                 user = await self.bot.fetch_user(user_id)
                 guild = self.bot.get_guild(guild_id)
                 await guild.unban(user)
