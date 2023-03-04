@@ -35,7 +35,7 @@ class Ban(commands.Cog):
             
             emb2 = discord.Embed(
                 title=f"Ban System",
-                description=f"<:Failed:1080584797572833382> You haven´t permission to ban {user.mention}",
+                description=f"<:Failed:1080584797572833382> You don't have permission to ban any user {user.mention}",
                 color=discord.Colour.red(),
             )
 
@@ -49,7 +49,7 @@ class Ban(commands.Cog):
         else:
             emb3 = discord.Embed(
                 title=f"Ban System",
-                description=f"<:Failed:1080584797572833382> You haven´t permission to ban any user",
+                description=f"<:Failed:1080584797572833382> You don't have permission to ban any user any user",
                 color=discord.Colour.red(),
             )
             await interaction.response.send_message(embed=emb3)
@@ -93,7 +93,7 @@ class Ban(commands.Cog):
 
             emb2 = discord.Embed(
                 title=f"Ban System",
-                description=f"<:Failed:1080584797572833382> You haven´t permission to ban {user.mention}",
+                description=f"<:Failed:1080584797572833382> You don't have permission to ban any user {user.mention}",
                 color=discord.Colour.red(),
             )
 
@@ -109,10 +109,15 @@ class Ban(commands.Cog):
         else:
             emb3 = discord.Embed(
                 title=f"Ban System",
-                description=f"<:Failed:1080584797572833382> You haven´t permission to ban any user",
+                description=f"<:Failed:1080584797572833382> You don't have permission to ban any user any user",
                 color=discord.Colour.red(),
             )
             await interaction.response.send_message(embed=emb3)
+
+
+    @app_commands.commands.command(name="unban", description="Unbans a user from the server")
+    async def unban(self, interaction: discord.Interaction, user: discord.Member):
+        
 
 
 async def setup(bot: commands.Bot):
