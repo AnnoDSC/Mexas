@@ -109,7 +109,7 @@ class Ban(commands.Cog):
         else:
             emb3 = discord.Embed(
                 title=f"Ban System",
-                description=f"<:Failed:1080584797572833382> You don't have permission to ban any user any user",
+                description=f"<:Failed:1080584797572833382> You don't have permission to ban any user",
                 color=discord.Colour.red(),
             )
             await interaction.response.send_message(embed=emb3)
